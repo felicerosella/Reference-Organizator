@@ -3,3 +3,4 @@ __pycache__/
 *.pyo
 .Ds_Store
 env/*
+venv
