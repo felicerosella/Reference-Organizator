@@ -43,6 +43,5 @@ def csv_builder(row):
     with open(output_folder, mode="a") as OutputFile:
         output_write = csv.writer(OutputFile)
         output_write.writerows(row)
-    return print("Riga compilata con successo")
 
 

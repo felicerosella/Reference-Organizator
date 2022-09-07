@@ -41,7 +41,6 @@ def third_step_export(row):
     with open(output_folder, mode="a") as OutputFile:
         writer = csv.writer(OutputFile)
         writer.writerow(row)
-    return print("Riga compilata con successo")
 
 
 if __name__ == "__main__":

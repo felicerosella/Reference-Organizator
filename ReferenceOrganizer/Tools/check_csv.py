@@ -28,7 +28,6 @@ class CheckCsv:
         print("Interagisco con il file Anagrafiche.csv")
         with open(self.input_reference, mode="r") as file:
             self.reference_input_line = file.readlines()   
-        # self.reference_input_line.append(reference_input_line)
 
     def output_reference_finder(self) -> str:
         print("Interagisco con il file Extract.csv")
@@ -41,14 +40,9 @@ class CheckCsv:
         for _,reference_input in enumerate(self.reference_input_line):
             reference = reference_input.replace("\n","").split(",")
             if reference not in self.reference_output_line:
-                # with open("Root/Output/Check.csv", mode="w") as file:  
-                #     print("Scrittura file in corso")
-                #     file.write(reference_input)
                 self.error_list.append(reference_input)
-                    # print("Scrittura file c   ompletata ;)")
             else:
                 print("Tutte le anagrafiche sono presenti nel file Extract.csv :)")
-        # return self.error_list
 
     def normalize_models(self):
         with open(self.extract_folder, mode="r") as file:
@@ -57,9 +51,6 @@ class CheckCsv:
         for _, row in df.iterrows():
             attr = '{"'+row["additional_attributes"]+'"}'
             attr = attr.replace("=", '":"').replace(",", '","')
-            # Qui ho fatto una cosa molto poco ortodossa, ma funziona
-            # Esempio di attr
-            # '{"sys_category":"118","sys_color":"C1675","sys_color_description":"BORDEAUX","sys_color_hex":"752534","sys_modello":"IR 12030SI 321","sys_size":"PZ","composizione":"100% POLIESTERE","gruppo_articoli":"AC-ACCESSORI","variante":"SI","campagna_acquisti":"AI21","cod":"IR 12030SI 321-C1675","sys_barcode":"2100037465013"}'
             attr = json.loads(attr)
             modello = attr.get("sys_modello")
             is_present = self.models.get(modello)
