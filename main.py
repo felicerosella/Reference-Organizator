@@ -25,6 +25,14 @@ def main():
         elif scelta_execute == "4":
             print("Inizializzata funzione Pulizia CSV \n\n ")
             output_csv_clear()  
+
+        elif scelta_execute == "test":
+            print("test\n\n")
+            Checker = CheckCsv()
+            Checker.input_reference_finder()
+            Checker.output_reference_finder()
+            Checker.check_color()
+            Checker.check_not_in_extract()
         else:
             break # Exit
 
