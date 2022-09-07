@@ -90,9 +90,10 @@ class CheckCsv:
 
     def check_not_in_extract(self):
         self.writer_csv()
-        for modello in self.error_list:
-            with open("Root/Output/Error.csv", mode="w") as errfile:
-                errfile.write(f"{modello}\n")
+        
+        with open("Root/Output/Error.csv", mode="w") as errfile:
+            for modello in self.error_list:
+                errfile.write(f"{modello}")
 
                 
         
