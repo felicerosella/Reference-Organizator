@@ -85,10 +85,6 @@ class CheckCsv:
             to_dump.get("modelli").append(model)
             to_dump.get("colori").append(attr)
 
-
-    
-        with open("check.json", mode="w") as jfile:
-            json.dump(to_dump, jfile, indent=4)
         new_df = pandas.DataFrame.from_dict(to_dump)
         new_df.to_csv("Root/Output/Check.csv")
 
